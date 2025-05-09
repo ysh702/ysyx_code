@@ -1,0 +1,7 @@
+top = top
+
+clk (BTNC)
+in (SW1)
+reset (SW0)
+out (LD0)
+

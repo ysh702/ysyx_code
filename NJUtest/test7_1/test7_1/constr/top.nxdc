@@ -1,0 +1,6 @@
+top=top
+
+clk (BTNC)
+out (LD7, LD6, LD5, LD4)
+in (SW1)
+out (LD0)
