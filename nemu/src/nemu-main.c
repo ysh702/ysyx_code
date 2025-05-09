@@ -23,13 +23,13 @@ int is_exit_status_bad();
 int main(int argc, char *argv[]) {
   /* Initialize the monitor. */
 #ifdef CONFIG_TARGET_AM
-  am_init_monitor();
+  am_init_monitor();//加载Monitor模块
 #else
-  init_monitor(argc, argv);
+  init_monitor(argc, argv);//初始化
 #endif
 
   /* Start engine. */
-  engine_start();
+  engine_start();//程序运行，进入sdb_mainloop()，然后进入is_exit_status_bad中
 
   return is_exit_status_bad();
 }

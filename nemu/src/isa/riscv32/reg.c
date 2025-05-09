@@ -24,8 +24,27 @@ const char *regs[] = {
 };
 
 void isa_reg_display() {
+  for(int i = 0; i < 32; i++){
+    printf("%-4s\t0x%08x\n", regs[i], cpu.gpr[i]);//访问寄存器数值
+  }//-4s宽度4个字符， \t制表符
+  printf("pc\t0x%08x\n", cpu.pc);//输出PC寄存器（risc-v）
+
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
+  if(s[0] != '$'){
+    *success = false;
+  }
+  if(!strcmp(s,regs[0])){
+    *success = true;
+    return 0;
+  }
+  for (int i = 1; i < 32; ++i){
+    if(!strcmp(s+1, regs[i])){
+      *success = true;
+      return cpu.gpr[i];
+    }
+  }
+  *success = false;
   return 0;
 }

@@ -34,7 +34,7 @@ static char *code_format =
 static void gen_rand_expr() {
   buf[0] = '\0';
 }
-
+//使用随即种子进行循环
 int main(int argc, char *argv[]) {
   int seed = time(0);
   srand(seed);
@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
   for (i = 0; i < loop; i ++) {
     gen_rand_expr();
 
-    sprintf(code_buf, code_format, buf);
+    sprintf(code_buf, code_format, buf);//将生成的表达式存储在code_buf中
 
     FILE *fp = fopen("/tmp/.code.c", "w");
     assert(fp != NULL);
